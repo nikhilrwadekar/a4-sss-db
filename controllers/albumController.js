@@ -16,6 +16,7 @@ exports.postAlbums = (req, res) => {
     let albumName = mysql.escape(req.body.name);
     let albumGenre = mysql.escape(req.body.genre);
 
+    // Add a new Album
     let insertAlbumQuery = `INSERT INTO albums(name,genre) VALUES (${albumName},${albumGenre})`;
     query(cp, insertAlbumQuery)
         .then(results => console.log(`Success: ${insertAlbumQuery}`))

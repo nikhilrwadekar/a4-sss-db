@@ -6,7 +6,7 @@ const mysql = require("mysql");
 
 // GET '/api/songs'
 exports.getSongs = (req, res) => {
-    // Send all Songs - with Left JOIN - to include NULL
+    // Send all Songs - with Left JOIN - to include NULL valued Albums
     query(cp, `SELECT songs.name song_name, albums.name album_name from songs LEFT JOIN albums ON songs.album_id = albums.album_id;`)
         .then(results => res.send(results))
         .catch(error => res.send(error));
